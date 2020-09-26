@@ -172,7 +172,7 @@
                 android:id="@+id/btnR"
                 android:layout_width="107dp"
                 android:layout_height="50dp"
-                android:background="@drawable/custome_boton"
+                android:background="@drawable/custon_boton3"
                 android:onClick="regFormu"
                 android:text="Registrar"
                 android:textAllCaps="false"
