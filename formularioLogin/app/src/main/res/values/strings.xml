@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Formulario Registro</string>
+    <string name="usuario">Ingrese Usuario</string>
+    <string name="clave">Ingrese Clave</string>
+    <string name="nombre">Nombres</string>
+    <string name="apellido">Apellidos</string>
+    <string name="edad">Edad</string>
+    <string name="correo">Correo Electronico</string>
+    <string name="clave1">Contraseña</string>
+    <string name="masculino">Masculino</string>
+    <string name="femenino">Femenino</string>
+    <string name="telefono">Telefono</string>
+    <string name="cedula">Cedula Identidad</string>
+    <string name="title_activity_menu_principal">menu_principal</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Control de Asistencia militar</string>
+    <string name="nav_header_subtitle">mgarciar@armada.mil.ec</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Registro Soldado</string>
+    <string name="menu_gallery">Listar Soldados</string>
+    <string name="menu_slideshow">Reporte gerencial</string>
+    <string name="calendario">MM/DD/AA</string>
+    <string name="calen">Calendario</string>
+    <string name="batallon">Batallón</string>
+    <string name="login">Login</string>
+    <string name="regitro">Registrese</string>
+</resources>
