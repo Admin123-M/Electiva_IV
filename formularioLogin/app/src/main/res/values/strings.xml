@@ -27,4 +27,9 @@
     <string name="batallon">Batallón</string>
     <string name="login">Login</string>
     <string name="regitro">Registrese</string>
+    <string name="reg">Regresar</string>
+    <string name="contra1">Contraseña actual</string>
+    <string name="contra2">Nueva contraseña</string>
+    <string name="contra3">Confirmar contraseña</string>
+    <string name="cambiar">Cambiar contraseña</string>
 </resources>

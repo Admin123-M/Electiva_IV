@@ -98,6 +98,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(reg);
 
     }
+    public void cambiarClave(View view){
+        Intent ir = new Intent(this, cambiarClave.class);
+        startActivity(ir);
+    }
 
 
 
