@@ -102,4 +102,22 @@
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/button2" />
 
+    <Button
+
+        android:id="@+id/btnCambiar"
+        android:layout_width="314dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+
+        android:layout_weight="1"
+        android:background="@drawable/custome_boton6"
+        android:onClick="cambiarClave"
+        android:text="@string/cambiar"
+        android:textAllCaps="false"
+        android:textColor="@color/ic_launcher_background"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:text="@string/cambiar" />
 </androidx.constraintlayout.widget.ConstraintLayout>
