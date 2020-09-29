@@ -22,4 +22,9 @@
         android:name="com.example.formulariologin1.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <activity
+        android:id="@+id/agregarSoldados"
+        android:name="com.example.formulariologin1.AgregarSoldados"
+        android:label="activity_agregar_soldados"
+        tools:layout="@layout/activity_agregar_soldados" />
 </navigation>
