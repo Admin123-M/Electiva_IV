@@ -3,8 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:onClick="regresar"
     tools:context="com.example.formulariologin1.AgregarSoldados">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Contactos"
+            android:text="@string/imp_sold"
 
             android:textSize="18sp" />
 
@@ -24,12 +26,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="mostrarcontactos"
-            android:text="Mostrar contactos" />
+            android:text="@string/most_contactos" />
 
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:visibility="visible">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -38,12 +41,39 @@
 
                 <TextView
                     android:id="@+id/Tv_contactos"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:visibility="visible" />
+
+                <Button
+                    android:id="@+id/add_soldados"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="import_sol"
+                    android:text="importar lista"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/Tv_contactos_pb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:visibility="visible" />
+
+                <Button
+                    android:id="@+id/btn_regresar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="regresar"
+                    android:text="Regresar" />
+
             </LinearLayout>
         </ScrollView>
 
 
     </LinearLayout>
+
 </LinearLayout>
