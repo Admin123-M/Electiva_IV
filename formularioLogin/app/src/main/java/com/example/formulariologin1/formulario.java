@@ -133,7 +133,7 @@ public class formulario extends AppCompatActivity {
         AdminSQLI admin = new AdminSQLI(this,"administracion",null,1);
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
         String cedula1 = cedula.getText().toString();
-
+            String bat = batallon.toString();
         if (!cedula1.isEmpty()) {
             Cursor fila = BaseDeDatos.rawQuery
                     ("select nombre1, apellido1, correo1,clave1, telefono1, fecha1, batallon1, sexo1 from formularios where cedula1 =" + cedula1, null);
@@ -146,7 +146,7 @@ public class formulario extends AppCompatActivity {
                clave.setText(fila.getString(3));
                 telefono.setText(fila.getString(4));
                 fecha.setText(fila.getString(5));
-                batallon.setSelection(6);
+                batallon.setSelection(fila.getShort(6));
 
                 sexoA.setSelected(true);
                 sexoB.setSelected(true);
