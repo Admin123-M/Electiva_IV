@@ -32,7 +32,14 @@
     <string name="contra2">Nueva contraseña</string>
     <string name="contra3">Confirmar contraseña</string>
     <string name="cambiar">Cambiar contraseña</string>
+<<<<<<< HEAD
     <string name="actua">Actualizar</string>
     <string name="userr">Ingrese Cedula</string>
     <string name="pass">Ingrese Contraseña</string>
+=======
+    <string name="imp_sold">Importar soldados desde comntactos</string>
+    <string name="most_contactos">mostrar contactos</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+>>>>>>> 49c2383f9cc60eb67a8a030042a89713edadc07a
 </resources>
