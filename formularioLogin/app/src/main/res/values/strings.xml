@@ -32,4 +32,7 @@
     <string name="contra2">Nueva contraseña</string>
     <string name="contra3">Confirmar contraseña</string>
     <string name="cambiar">Cambiar contraseña</string>
+    <string name="actua">Actualizar</string>
+    <string name="userr">Ingrese Cedula</string>
+    <string name="pass">Ingrese Contraseña</string>
 </resources>

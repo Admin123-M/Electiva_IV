@@ -38,9 +38,11 @@ public class MainActivity extends AppCompatActivity {
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
         String cedula1 = cedula.getText().toString();
         String clave1 = clave.getText().toString();
+
         if(!cedula1.isEmpty() && !clave1.isEmpty()) {
             Cursor  fila =BaseDeDatos.rawQuery("select cedula1 from  formularios where cedula1=" + cedula1,null);
-        if(fila.moveToFirst() && clave1.equals(cedula1)){
+            Cursor  fila1 =BaseDeDatos.rawQuery("select clave1 from  formularios where clave1=" + clave1,null);
+        if(fila.moveToFirst() && fila1.moveToFirst()){
 
             AlertDialog.Builder alerta = new AlertDialog.Builder(MainActivity.this);
             alerta.setMessage("¿Deseas Mantener la Sesión activa?")
@@ -50,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
                         public void onClick(DialogInterface dialog, int i) {
                             SharedPreferences preferencias = getSharedPreferences("admin", Context.MODE_PRIVATE);
                             SharedPreferences.Editor editor = preferencias.edit();
-                            editor.putString("cedula1", cedula.getText().toString());
-                            editor.putString("clave1", clave.getText().toString());
+                            editor.putString("cedula1",cedula.getText().toString());
+                            editor.putString("clave1",clave.getText().toString());
 
                             editor.commit();
                             IrPreferecia();
