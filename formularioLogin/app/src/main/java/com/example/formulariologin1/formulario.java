@@ -30,6 +30,7 @@ public class formulario extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario);
+
         cedula = (EditText) findViewById(R.id.txtCedula);
         nombre = (EditText) findViewById(R.id.txtNombre);
         apellido = (EditText) findViewById(R.id.txtApellido);
