@@ -10,7 +10,7 @@ public class AdminSQLI extends SQLiteOpenHelper {
     public AdminSQLI(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
-
+//Base de datos de formulario de registro de Jefe de compañia
     @Override
     public void onCreate(SQLiteDatabase BaseDeDatos) {
 
