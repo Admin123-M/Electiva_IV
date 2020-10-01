@@ -7,84 +7,100 @@
     android:background="@mipmap/logna"
     tools:context="com.example.formulariologin1.MainActivity">
 
-    <Button
-
-        android:id="@+id/btnCambiar"
-        android:layout_width="254dp"
-        android:layout_height="39dp"
-
-        android:layout_marginTop="12dp"
-        android:layout_weight="1"
-        android:background="@drawable/custome_boton6"
-        android:onClick="cambiarClave"
-        android:text="@string/cambiar"
-        android:textAllCaps="false"
-        android:textColor="@color/ic_launcher_background"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        tools:text="@string/cambiar" />
-
-    <EditText
-        android:id="@+id/txtP"
-        android:layout_width="223dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="56dp"
-        android:ems="10"
-        android:hint="@string/clave"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.625"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtD" />
-
-    <EditText
-        android:id="@+id/txtD"
-        android:layout_width="223dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="160dp"
-        android:ems="10"
-        android:hint="@string/usuario"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.653"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="253dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal"
+        android:layout_width="269dp"
+        android:layout_height="330dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.522"
+        app:layout_constraintHorizontal_bias="0.661"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtP">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.536">
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="51dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:background="@drawable/custon_boton3"
-            android:onClick="Ingresar"
-            android:text="Ingresar" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="181dp"
+            android:orientation="vertical">
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            <EditText
+                android:id="@+id/txtD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/usuario"
+                android:inputType="textPersonName" />
 
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="51dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:background="@drawable/custon_boton3"
-            android:onClick="Registrar"
-            android:text="Registrarse" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="77dp" />
+
+            <EditText
+                android:id="@+id/txtP"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:ems="10"
+                android:hint="@string/clave"
+                android:inputType="textPassword" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="51dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@drawable/custon_boton3"
+                android:onClick="Ingresar"
+                android:text="Ingresar" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="51dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@drawable/custon_boton3"
+                android:onClick="Registrar"
+                android:text="Registrarse" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_weight="1" />
+
+            <Button
+
+                android:id="@+id/btnCambiar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="1"
+                android:background="@drawable/custome_boton6"
+                android:onClick="cambiarClave"
+                android:text="@string/cambiar"
+                android:textAllCaps="false"
+                android:textColor="@color/ic_launcher_background"
+                android:textSize="20sp"
+                tools:text="@string/cambiar" />
+        </LinearLayout>
 
     </LinearLayout>
 

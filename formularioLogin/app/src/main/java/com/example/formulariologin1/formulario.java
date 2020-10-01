@@ -133,17 +133,17 @@ public class formulario extends AppCompatActivity {
             String bat = batallon.toString();
         if (!cedula1.isEmpty()) {
             Cursor fila = BaseDeDatos.rawQuery
-                    ("select nombre1, apellido1, correo1,clave1, telefono1, fecha1, batallon1, sexo1 from formularios where cedula1 =" + cedula1, null);
+                    ("select nombre1, apellido1, correo1, telefono1, fecha1, batallon1, sexo1 from formularios where cedula1 =" + cedula1, null);
 
             //me confirma oo revisa si la consulta tiene valores
             if (fila.moveToFirst()) {
                 nombre.setText(fila.getString(0));
                 apellido.setText(fila.getString(1));
                 correo.setText(fila.getString(2));
-               clave.setText(fila.getString(3));
-                telefono.setText(fila.getString(4));
-                fecha.setText(fila.getString(5));
-                batallon.setSelection(fila.getShort(6));
+               //clave.setText(fila.getString(3));
+                telefono.setText(fila.getString(3));
+                fecha.setText(fila.getString(4));
+                batallon.setSelection(fila.getShort(5));
 
                 sexoA.setSelected(true);
                 sexoB.setSelected(true);

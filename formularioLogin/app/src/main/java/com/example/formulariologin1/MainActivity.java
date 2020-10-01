@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
 
         if(!cedula1.isEmpty() && !clave1.isEmpty()) {
             Cursor  fila =BaseDeDatos.rawQuery("select cedula1 from  formularios where cedula1=" + cedula1,null);
-            Cursor  fila1 =BaseDeDatos.rawQuery("select clave1 from  formularios where clave1=" + clave1,null);
-        if(fila.moveToFirst() && fila1.moveToFirst()){
+            //Cursor  fila1 =BaseDeDatos.rawQuery("select clave1 from  formularios where clave1=" + clave1,null);
+        if(fila.moveToFirst()){
 
             AlertDialog.Builder alerta = new AlertDialog.Builder(MainActivity.this);
             alerta.setMessage("¿Deseas Mantener la Sesión activa?")
