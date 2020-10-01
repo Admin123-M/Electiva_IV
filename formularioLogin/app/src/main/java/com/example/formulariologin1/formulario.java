@@ -42,7 +42,7 @@ public class formulario extends AppCompatActivity {
         apellido = (EditText) findViewById(R.id.txtApellido);
         correo = (EditText) findViewById(R.id.txtCorreo);
 
-        clave=(EditText)findViewById(R.id.txtCla);
+        //clave=(EditText)findViewById(R.id.txtCla);
         telefono = (EditText) findViewById(R.id.txtTelefono);
         fecha = (EditText) findViewById(R.id.txtCa);
         batallon = (Spinner)findViewById(R.id.spinner);
@@ -69,7 +69,7 @@ public class formulario extends AppCompatActivity {
         String nombre1 = nombre.getText().toString();
         String apelllido1 = apellido.getText().toString();
         String correo1 = correo.getText().toString();
-        String clave1 = clave.getText().toString();
+        //String clave1 = clave.getText().toString();
         String telefono1 = telefono.getText().toString();
         String fecha1 = fecha.getText().toString();
         String batallon1 = batallon.getSelectedItem().toString();
@@ -77,14 +77,14 @@ public class formulario extends AppCompatActivity {
         String sexo2 = sexoB.getText().toString();
 
         if (!cedula1.isEmpty() && !nombre1.isEmpty() && !apelllido1.isEmpty()
-                && !correo1.isEmpty() && !clave1.isEmpty() && !telefono1.isEmpty() && !fecha1.isEmpty() && !batallon1.isEmpty())
+                && !correo1.isEmpty() && !telefono1.isEmpty() && !fecha1.isEmpty() && !batallon1.isEmpty())
                 {
             ContentValues registrar = new ContentValues();
             registrar.put("cedula1", cedula1);
             registrar.put("nombre1", nombre1);
             registrar.put("apellido1", apelllido1);
             registrar.put("correo1", correo1);
-            registrar.put("clave1",clave1);
+            registrar.put("clave1",cedula1);
             registrar.put("telefono1", telefono1);
             registrar.put("fecha1",fecha1);
             registrar.put("batallon1",batallon1);
@@ -113,7 +113,7 @@ public class formulario extends AppCompatActivity {
             nombre.setText("");
             apellido.setText("");
             correo.setText("");
-            clave.setText("");
+            //clave.setText("");
             telefono.setText("");
             fecha.setText("");
             batallon.setEmptyView(batallon);
