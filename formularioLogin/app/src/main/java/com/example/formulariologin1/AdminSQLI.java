@@ -13,13 +13,11 @@ public class AdminSQLI extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase BaseDeDatos) {
-<<<<<<< HEAD
+
         BaseDeDatos.execSQL("create table formularios(cedula1 int primary key,nombre1 text, apellido1 text, correo1 text, clave1 text, telefono1 text, batallon1 text,fecha1 text, sexo1 booleano)");
 
-=======
-        BaseDeDatos.execSQL("create table formularios(cedula1 int primary key, nombre1 text, apellido1 text, correo1 text, telefono1 text, fecha1,batallon1 text)");
-        BaseDeDatos.execSQL("create table soldado(cedulaS int primary key, nombre1 text, apellido1 text, telefono1 text, grado text,batallon1 text, compañia text, ubicacion text)");
->>>>>>> 49c2383f9cc60eb67a8a030042a89713edadc07a
+
+
     }
 
 

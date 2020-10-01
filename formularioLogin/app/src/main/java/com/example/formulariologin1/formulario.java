@@ -15,17 +15,15 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 import android.database.Cursor;
 
 import com.example.formulariologin.R;
 
-import java.security.KeyStore;
 import java.util.Calendar;
 
 public class formulario extends AppCompatActivity {
-    private EditText cedula,usuario,clave, nombre, apellido, correo, telefono, fecha;
+    private EditText cedula,clave, nombre, apellido, correo, telefono, fecha;
     private Button candelario;
     private Spinner batallon;
     private int dd, mm, aa;
@@ -37,17 +35,13 @@ public class formulario extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario);
-<<<<<<< HEAD
-        cedula = (EditText) findViewById(R.id.txtClave);
-
-=======
 
         cedula = (EditText) findViewById(R.id.txtCedula);
->>>>>>> 49c2383f9cc60eb67a8a030042a89713edadc07a
+
         nombre = (EditText) findViewById(R.id.txtNombre);
         apellido = (EditText) findViewById(R.id.txtApellido);
         correo = (EditText) findViewById(R.id.txtCorreo);
-        //usuario = (EditText)findViewById(R.id.txtUsu);
+
         clave=(EditText)findViewById(R.id.txtCla);
         telefono = (EditText) findViewById(R.id.txtTelefono);
         fecha = (EditText) findViewById(R.id.txtCa);
@@ -75,14 +69,13 @@ public class formulario extends AppCompatActivity {
         String nombre1 = nombre.getText().toString();
         String apelllido1 = apellido.getText().toString();
         String correo1 = correo.getText().toString();
-       //String usuario1 = usuario.getText().toString();
-       String clave1 = clave.getText().toString();
+        String clave1 = clave.getText().toString();
         String telefono1 = telefono.getText().toString();
         String fecha1 = fecha.getText().toString();
         String batallon1 = batallon.getSelectedItem().toString();
         String sexo1 = sexoA.getText().toString();
         String sexo2 = sexoB.getText().toString();
-        //String selec1 = spi1.getSelectedItem().toString();
+
         if (!cedula1.isEmpty() && !nombre1.isEmpty() && !apelllido1.isEmpty()
                 && !correo1.isEmpty() && !clave1.isEmpty() && !telefono1.isEmpty() && !fecha1.isEmpty() && !batallon1.isEmpty())
                 {
@@ -120,7 +113,6 @@ public class formulario extends AppCompatActivity {
             nombre.setText("");
             apellido.setText("");
             correo.setText("");
-            //usuario.setText("");
             clave.setText("");
             telefono.setText("");
             fecha.setText("");
