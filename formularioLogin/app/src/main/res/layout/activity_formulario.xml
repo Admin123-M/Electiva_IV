@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:screenOrientation="portrait"
     tools:context="com.example.formulariologin1.formulario">
 
     <LinearLayout
-        android:layout_width="346dp"
-        android:layout_height="544dp"
+        android:layout_width="354dp"
+        android:layout_height="594dp"
         android:layout_marginTop="4dp"
         android:orientation="vertical"
+        android:screenOrientation="portrait"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -82,9 +84,9 @@
             android:orientation="vertical">
 
             <RadioGroup
+                android:id="@+id/radioG"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/radioG">
+                android:layout_height="match_parent">
 
                 <RadioButton
                     android:id="@+id/radioButton1"
@@ -159,7 +161,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="63dp"
+            android:layout_height="79dp"
             android:orientation="horizontal">
 
             <Button
@@ -245,6 +247,11 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="24dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"/>
 
     </LinearLayout>
 

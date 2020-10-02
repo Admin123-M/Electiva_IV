@@ -20,7 +20,10 @@ import android.database.Cursor;
 
 import com.example.formulariologin.R;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class formulario extends AppCompatActivity {
     private EditText cedula,clave, nombre, apellido, correo, telefono, fecha;
@@ -31,6 +34,7 @@ public class formulario extends AppCompatActivity {
     private RadioGroup radG;
     private boolean  sexo4;
     private boolean sexo5;
+    DatePicker picker;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +49,7 @@ public class formulario extends AppCompatActivity {
         //clave=(EditText)findViewById(R.id.txtCla);
         telefono = (EditText) findViewById(R.id.txtTelefono);
         fecha = (EditText) findViewById(R.id.txtCa);
+
         batallon = (Spinner)findViewById(R.id.spinner);
         String [] opciones ={"Batallones","CUINMA","BIMJAR","BIMJAM","BIMUIL","BIMEDU","BASEDU","BIMLOR","BIMESM"};
         ArrayAdapter <String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,opciones);
@@ -225,10 +230,18 @@ public class formulario extends AppCompatActivity {
     }
 
     public void onClick(View v) {
-        final Calendar c = Calendar.getInstance();
-        dd = c.get(Calendar.DAY_OF_MONTH);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyy/MM/dd");
+        Date date = null;
+        try {
+            date = sdf.parse("2020/10/02");
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        dd = c.get(Calendar.YEAR);
         mm = c.get(Calendar.MONTH);
-        aa = c.get(Calendar.YEAR);
+        aa = c.get(Calendar.DAY_OF_MONTH);
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -238,6 +251,8 @@ public class formulario extends AppCompatActivity {
         }
                 , dd, mm, aa);
         datePickerDialog.show();
+
+
 
 
     }

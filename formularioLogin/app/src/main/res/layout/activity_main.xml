@@ -8,53 +8,51 @@
     tools:context="com.example.formulariologin1.MainActivity">
 
     <LinearLayout
-        android:layout_width="269dp"
-        android:layout_height="330dp"
+        android:layout_width="254dp"
+        android:layout_height="437dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.661"
+        app:layout_constraintHorizontal_bias="0.709"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.536">
+        app:layout_constraintVertical_bias="0.438">
+
+        <LinearLayout
+            android:layout_width="293dp"
+            android:layout_height="109dp"
+            android:orientation="vertical"></LinearLayout>
+
+        <EditText
+            android:id="@+id/txtD"
+            android:layout_width="238dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/usuario"
+            android:inputType="textPersonName" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="181dp"
-            android:orientation="vertical">
+            android:layout_height="49dp"
+            android:orientation="vertical"></LinearLayout>
 
-            <EditText
-                android:id="@+id/txtD"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/usuario"
-                android:inputType="textPersonName" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="77dp" />
-
-            <EditText
-                android:id="@+id/txtP"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:ems="10"
-                android:hint="@string/clave"
-                android:inputType="textPassword" />
-
-        </LinearLayout>
+        <EditText
+            android:id="@+id/txtP"
+            android:layout_width="243dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/clave"
+            android:inputType="textPassword" />
 
         <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
+            android:layout_width="239dp"
+            android:layout_height="69dp"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/button2"
-                android:layout_width="51dp"
-                android:layout_height="50dp"
+                android:layout_width="98dp"
+                android:layout_height="60dp"
                 android:layout_weight="1"
                 android:background="@drawable/custon_boton3"
                 android:onClick="Ingresar"
@@ -66,31 +64,46 @@
                 android:layout_weight="1" />
 
             <Button
-                android:id="@+id/button4"
-                android:layout_width="51dp"
-                android:layout_height="50dp"
+                android:id="@+id/button"
+                android:layout_width="98dp"
+                android:layout_height="60dp"
                 android:layout_weight="1"
                 android:background="@drawable/custon_boton3"
                 android:onClick="Registrar"
-                android:text="Registrarse" />
+                android:text="Registrar" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="259dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_width="231dp"
+            android:layout_height="13dp"
+            android:orientation="horizontal"></LinearLayout>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:layout_weight="1" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="257dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <Button
 
                 android:id="@+id/btnCambiar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="241dp"
+                android:layout_height="match_parent"
 
                 android:layout_weight="1"
                 android:background="@drawable/custome_boton6"
@@ -101,7 +114,6 @@
                 android:textSize="20sp"
                 tools:text="@string/cambiar" />
         </LinearLayout>
-
     </LinearLayout>
 
 
