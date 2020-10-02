@@ -77,7 +77,7 @@ public class formulario extends AppCompatActivity {
         //String clave1 = clave.getText().toString();
         String telefono1 = telefono.getText().toString();
         String fecha1 = fecha.getText().toString();
-        String batallon1 = batallon.getSelectedItem().toString();
+        String batallon1 = String.valueOf(batallon.getSelectedItem());
         String sexo1 = sexoA.getText().toString();
         String sexo2 = sexoB.getText().toString();
 
@@ -121,7 +121,7 @@ public class formulario extends AppCompatActivity {
             //clave.setText("");
             telefono.setText("");
             fecha.setText("");
-            batallon.setEmptyView(batallon);
+           // batallon.setEmptyView(batallon);
             radG.clearCheck();
             Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show();
         } else {
@@ -135,7 +135,7 @@ public class formulario extends AppCompatActivity {
         AdminSQLI admin = new AdminSQLI(this,"administracion",null,1);
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
         String cedula1 = cedula.getText().toString();
-            String bat = batallon.toString();
+        //String bat = batallon.getAdapter().toString();
         if (!cedula1.isEmpty()) {
             Cursor fila = BaseDeDatos.rawQuery
                     ("select nombre1, apellido1, correo1, telefono1, fecha1, batallon1, sexo1 from formularios where cedula1 =" + cedula1, null);
@@ -148,10 +148,10 @@ public class formulario extends AppCompatActivity {
                //clave.setText(fila.getString(3));
                 telefono.setText(fila.getString(3));
                 fecha.setText(fila.getString(4));
-                batallon.setSelection(fila.getShort(5));
-
-                sexoA.setSelected(true);
-                sexoB.setSelected(true);
+                batallon.setSelection(5);
+                //fila.getString(5);
+                //sexoA.setSelected(true);
+                //sexoB.setSelected(true);
 
 
                 BaseDeDatos.close();
@@ -195,19 +195,19 @@ public class formulario extends AppCompatActivity {
         String nombre1 = nombre.getText().toString();
         String apelllido1 = apellido.getText().toString();
         String correo1 = correo.getText().toString();
-        String clave1 = clave.getText().toString();
+        //String clave1 = clave.getText().toString();
         String telefono1 = telefono.getText().toString();
         String fecha1 = fecha.getText().toString();
         String batallon1 = batallon.getAdapter().toString();
         if (!cedula1.isEmpty() && !nombre1.isEmpty() && !apelllido1.isEmpty()
-                && !correo1.isEmpty() && !clave1.isEmpty() && !telefono1.isEmpty() ) {
+                && !correo1.isEmpty() && !telefono1.isEmpty() ) {
             ContentValues registrar = new ContentValues();
             registrar.put("cedula1", cedula1);
             registrar.put("nombre1", nombre1);
             registrar.put("apellido1", apelllido1);
             registrar.put("correo1", correo1);
             //registrar.put("usuario1",usuario1);
-            registrar.put("clave1",cedula1);
+            //registrar.put("clave1",cedula1);
             registrar.put("telefono1", telefono1);
             registrar.put("fecha1",fecha1);
          registrar.put("batallon1",batallon1);
@@ -216,7 +216,7 @@ public class formulario extends AppCompatActivity {
             nombre.setText("");
             apellido.setText("");
             correo.setText("");
-            clave.setText("");
+            //clave.setText("");
             telefono.setText("");
             fecha.setText("");
             //batallon.setAdapter("");
