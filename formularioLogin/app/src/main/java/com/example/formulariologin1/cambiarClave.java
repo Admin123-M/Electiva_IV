@@ -36,7 +36,7 @@ EditText claveA,claveN1,claveN2;
         String claveNueva2 = claveN1.getText().toString();
         String claveNueva3= claveN2.getText().toString();
         if(!clave1.isEmpty()){
-            Cursor fila = BaseDeDatos.rawQuery("select clave1 from formularios where clave1 =" + clave1,null);
+            Cursor fila = BaseDeDatos.rawQuery("select cedula1 from formularios where cedula1 =" + clave1,null);
             if (fila.moveToFirst()) {
                 if(claveNueva2.equals(claveNueva3)) {
                     ContentValues registrar = new ContentValues();
@@ -46,12 +46,12 @@ EditText claveA,claveN1,claveN2;
                     claveN1.setText("");
                     claveN2.setText("");
                     BaseDeDatos.close();
-                    Toast.makeText(this,"Contraseña actualizad", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,"Contraseña actualizada", Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(this,"Las clave propocionado no son identicas",Toast.LENGTH_SHORT).show();
                 }
             }else{
-                Toast.makeText(this,"Debe ingresar una clave", Toast.LENGTH_SHORT);
+                Toast.makeText(this,"Debe ingresar una clave", Toast.LENGTH_SHORT).show();
                 BaseDeDatos.close();
             }
                     }else{

@@ -207,7 +207,7 @@ public class formulario extends AppCompatActivity {
             registrar.put("apellido1", apelllido1);
             registrar.put("correo1", correo1);
             //registrar.put("usuario1",usuario1);
-            registrar.put("clave1",clave1);
+            registrar.put("clave1",cedula1);
             registrar.put("telefono1", telefono1);
             registrar.put("fecha1",fecha1);
          registrar.put("batallon1",batallon1);
