@@ -1,7 +1,6 @@
 package com.example.formulariologin1;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -9,7 +8,6 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.ContentValues;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -24,7 +22,7 @@ import android.widget.Toast;
 
 import com.example.formulariologin.R;
 
-public class AgregarSoldados extends AppCompatActivity {
+public class ImportSoldados extends AppCompatActivity {
 
 
     private static final int CODIGO_SOLICITUD_PERMISO = 1;
@@ -260,7 +258,7 @@ public class AgregarSoldados extends AppCompatActivity {
         boolean solicitarPermisoWCL = ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.WRITE_CONTACTS);
 
         if (solicitarPermisoRCL && solicitarPermisoWCL) {
-            Toast.makeText(AgregarSoldados.this, "Los permisos fueron otorgados", Toast.LENGTH_SHORT).show();
+            Toast.makeText(ImportSoldados.this, "Los permisos fueron otorgados", Toast.LENGTH_SHORT).show();
         }
         else{
             ActivityCompat.requestPermissions(activity,new String[]{Manifest.permission.READ_CONTACTS, Manifest.permission.WRITE_CONTACTS}, CODIGO_SOLICITUD_PERMISO);
@@ -274,10 +272,10 @@ public class AgregarSoldados extends AppCompatActivity {
         boolean permisoWriteCallLog = ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_CONTACTS) == PackageManager.PERMISSION_GRANTED;
 
         if (permisoRealCallLog && permisoWriteCallLog){
-            Toast.makeText(AgregarSoldados.this, "Los permisos estan vigentes", Toast.LENGTH_SHORT).show();
+            Toast.makeText(ImportSoldados.this, "Los permisos estan vigentes", Toast.LENGTH_SHORT).show();
             return true;
         }else{
-            Toast.makeText(AgregarSoldados.this, "no tiene permisos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(ImportSoldados.this, "no tiene permisos", Toast.LENGTH_SHORT).show();
             return false;
         }
     }
@@ -288,10 +286,10 @@ public class AgregarSoldados extends AppCompatActivity {
         switch (requestCode){
             case CODIGO_SOLICITUD_PERMISO:
                 if (chequearStatusPermiso()){
-                    Toast.makeText(AgregarSoldados.this, "Ya está activo el permiso", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ImportSoldados.this, "Ya está activo el permiso", Toast.LENGTH_SHORT).show();
                     consultarCPLlamadas();
                 }else{
-                    Toast.makeText(AgregarSoldados.this, "No se activó el permiso", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ImportSoldados.this, "No se activó el permiso", Toast.LENGTH_SHORT).show();
                 }
         }
     }

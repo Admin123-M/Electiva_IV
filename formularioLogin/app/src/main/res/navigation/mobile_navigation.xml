@@ -24,7 +24,17 @@
         tools:layout="@layout/fragment_slideshow" />
     <activity
         android:id="@+id/agregarSoldados"
-        android:name="com.example.formulariologin1.AgregarSoldados"
+        android:name="com.example.formulariologin1.ImportSoldados"
         android:label="activity_agregar_soldados"
         tools:layout="@layout/activity_agregar_soldados" />
+    <activity
+        android:id="@+id/listar_soldados"
+        android:name="com.example.formulariologin1.Listar_soldados"
+        android:label="activity_listar_soldados"
+        tools:layout="@layout/activity_listar_soldados" />
+    <activity
+        android:id="@+id/add_soldado"
+        android:name="com.example.formulariologin1.add_soldado"
+        android:label="activity_add_soldado"
+        tools:layout="@layout/activity_add_soldado" />
 </navigation>

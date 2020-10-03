@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/logna"
-    tools:context="com.example.formulariologin1.MainActivity">
+     tools:context="com.example.formulariologin1.MainActivity">
 
     <LinearLayout
         android:layout_width="254dp"

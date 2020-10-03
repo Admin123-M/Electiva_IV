@@ -1,28 +1,21 @@
 package com.example.formulariologin1;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.Notification;
-
-import android.app.PendingIntent;
-import android.content.ContentValues;
-import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Color;
-
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.ContentValues;
+import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Build;
-
 import android.os.Bundle;
 import android.view.View;
-import android.content.Intent;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -31,7 +24,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
-import android.database.Cursor;
 
 import com.example.formulariologin.R;
 
@@ -39,32 +31,40 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-public class formulario extends AppCompatActivity {
+
+public class add_soldado extends AppCompatActivity {
+
     private EditText cedula,clave, nombre, apellido, correo, telefono, fecha;
     private Button candelario;
-
+    private Spinner batallon;
     private int dd, mm, aa;
     private RadioButton sexoA,sexoB;
     private RadioGroup radG;
-    private PendingIntent pendingIntent;
-
-
+    private boolean  sexo4;
+    private boolean sexo5;
     DatePicker picker;
+
     @Override
-    
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_formulario);
 
-        
+
         cedula = (EditText) findViewById(R.id.txtCedula);
 
         nombre = (EditText) findViewById(R.id.txtNombre);
         apellido = (EditText) findViewById(R.id.txtApellido);
         correo = (EditText) findViewById(R.id.txtCorreo);
 
+        //clave=(EditText)findViewById(R.id.txtCla);
         telefono = (EditText) findViewById(R.id.txtTelefono);
         fecha = (EditText) findViewById(R.id.txtCa);
+
+
+        String [] opciones ={"Batallones","CUINMA","BIMJAR","BIMJAM","BIMUIL","BIMEDU","BASEDU","BIMLOR","BIMESM"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,opciones);
+        batallon.setAdapter(adapter);
+
+        radG = (RadioGroup)findViewById(R.id.radioG);
 
 
     }
@@ -82,16 +82,15 @@ public class formulario extends AppCompatActivity {
         String nombre1 = nombre.getText().toString();
         String apelllido1 = apellido.getText().toString();
         String correo1 = correo.getText().toString();
-
+        //String clave1 = clave.getText().toString();
         String telefono1 = telefono.getText().toString();
         String fecha1 = fecha.getText().toString();
-
+        String batallon1 = String.valueOf(batallon.getSelectedItem());
         String sexo1 = sexoA.getText().toString();
         String sexo2 = sexoB.getText().toString();
-
         if (!cedula1.isEmpty() && !nombre1.isEmpty() && !apelllido1.isEmpty()
-                && !correo1.isEmpty() && !telefono1.isEmpty() && !fecha1.isEmpty())
-                {
+                && !correo1.isEmpty() && !telefono1.isEmpty() && !fecha1.isEmpty() && !batallon1.isEmpty())
+        {
             ContentValues registrar = new ContentValues();
             registrar.put("cedula1", cedula1);
             registrar.put("nombre1", nombre1);
@@ -100,8 +99,22 @@ public class formulario extends AppCompatActivity {
             registrar.put("clave1",cedula1);
             registrar.put("telefono1", telefono1);
             registrar.put("fecha1",fecha1);
-
-
+            registrar.put("batallon1",batallon1);
+            registrar.put("estado", "Activo");
+            if(sexoA.isChecked()) {
+                sexo4 = true;
+                registrar.put("sexo1", sexo4);
+            }else{
+                sexo4=false;
+                registrar.put("sexo1", sexo4);
+            }
+            if(sexoB.isChecked()){
+                sexo5=true;
+                registrar.put("sexo1", sexo5);
+            }else{
+                sexo5=false;
+                registrar.put("sexo1", sexo5);
+            }
             BaseDeDatos.insert("formularios", null, registrar);
             BaseDeDatos.close();
 
@@ -109,17 +122,17 @@ public class formulario extends AppCompatActivity {
             nombre.setText("");
             apellido.setText("");
             correo.setText("");
-
+            //clave.setText("");
             telefono.setText("");
             fecha.setText("");
-
-
+            // batallon.setEmptyView(batallon);
+            radG.clearCheck();
             Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show();
             //notificacionDialog();
             NotificationManager notificationManager = (NotificationManager) getSystemService(this.NOTIFICATION_SERVICE);
             String NOTIFICATION_CHANEL_ID = "tutorialspoint_01";
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-                @SuppressLint("WrongConstant")NotificationChannel notificationChannel =
+                @SuppressLint("WrongConstant") NotificationChannel notificationChannel =
                         new NotificationChannel(NOTIFICATION_CHANEL_ID, "My Notifications",  NotificationManager.IMPORTANCE_HIGH);
                 notificationChannel.setDescription("Descripcion de canal simple");
                 notificationChannel.enableLights(true);
@@ -127,7 +140,7 @@ public class formulario extends AppCompatActivity {
                 notificationChannel.setVibrationPattern(new long[]{0,1000,500,1000});
                 notificationChannel.enableVibration(true);
                 notificationManager.createNotificationChannel(notificationChannel);
-                }
+            }
             NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this,NOTIFICATION_CHANEL_ID);
             notificationBuilder.setAutoCancel(true)
                     .setDefaults(Notification.DEFAULT_ALL)
@@ -157,20 +170,23 @@ public class formulario extends AppCompatActivity {
         AdminSQLI admin = new AdminSQLI(this,"administracion",null,1);
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
         String cedula1 = cedula.getText().toString();
-
+        //String bat = batallon.getAdapter().toString();
         if (!cedula1.isEmpty()) {
             Cursor fila = BaseDeDatos.rawQuery
-                    ("select nombre1, apellido1, correo1, telefono1, fecha1 from formularios where cedula1 =" + cedula1, null);
+                    ("select nombre1, apellido1, correo1, telefono1, fecha1, batallon1, sexo1 from formularios where cedula1 =" + cedula1, null);
 
             //me confirma oo revisa si la consulta tiene valores
             if (fila.moveToFirst()) {
                 nombre.setText(fila.getString(0));
                 apellido.setText(fila.getString(1));
                 correo.setText(fila.getString(2));
-
+                //clave.setText(fila.getString(3));
                 telefono.setText(fila.getString(3));
                 fecha.setText(fila.getString(4));
-
+                batallon.setSelection(5);
+                //fila.getString(5);
+                //sexoA.setSelected(true);
+                //sexoB.setSelected(true);
 
 
                 BaseDeDatos.close();
@@ -196,7 +212,8 @@ public class formulario extends AppCompatActivity {
             nombre.setText("");
             apellido.setText("");
             correo.setText("");
-
+            // usuario.setText("");
+            clave.setText("");
             telefono.setText("");
             fecha.setText("");
             Toast.makeText(this, "Su registro fue elimnado exitosamente", Toast.LENGTH_SHORT).show();
@@ -213,10 +230,10 @@ public class formulario extends AppCompatActivity {
         String nombre1 = nombre.getText().toString();
         String apelllido1 = apellido.getText().toString();
         String correo1 = correo.getText().toString();
-
+        //String clave1 = clave.getText().toString();
         String telefono1 = telefono.getText().toString();
         String fecha1 = fecha.getText().toString();
-
+        String batallon1 = batallon.getAdapter().toString();
         if (!cedula1.isEmpty() && !nombre1.isEmpty() && !apelllido1.isEmpty()
                 && !correo1.isEmpty() && !telefono1.isEmpty() ) {
             ContentValues registrar = new ContentValues();
@@ -224,19 +241,20 @@ public class formulario extends AppCompatActivity {
             registrar.put("nombre1", nombre1);
             registrar.put("apellido1", apelllido1);
             registrar.put("correo1", correo1);
-
+            //registrar.put("usuario1",usuario1);
+            //registrar.put("clave1",cedula1);
             registrar.put("telefono1", telefono1);
             registrar.put("fecha1",fecha1);
-
+            registrar.put("batallon1",batallon1);
             int cant = BaseDedatos.update("formularios", registrar, "cedula1=" + cedula1, null);
             cedula.setText("");
             nombre.setText("");
             apellido.setText("");
             correo.setText("");
-
+            //clave.setText("");
             telefono.setText("");
             fecha.setText("");
-
+            //batallon.setAdapter("");
             if (cant == 1) {
                 Toast.makeText(this, "Actualizacion fue exitosa", Toast.LENGTH_SHORT).show();
 
@@ -273,6 +291,4 @@ public class formulario extends AppCompatActivity {
 
 
     }
-
-
-    }
+}
