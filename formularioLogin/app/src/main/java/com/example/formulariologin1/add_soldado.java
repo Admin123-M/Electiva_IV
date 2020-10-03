@@ -78,7 +78,7 @@ public class add_soldado extends AppCompatActivity {
     }
 
     public void regresar(View view) {
-        Intent regresar = new Intent(this, MainActivity.class);
+        Intent regresar = new Intent(this, menu_principal.class);
         startActivity(regresar);
     }
 
@@ -89,65 +89,39 @@ public class add_soldado extends AppCompatActivity {
         String cedula1 = cedula.getText().toString();
         String nombre1 = nombre.getText().toString();
         String apelllido1 = apellido.getText().toString();
-        String correo1 = correo.getText().toString();
-
         String telefono1 = telefono.getText().toString();
-        String fecha1 = fecha.getText().toString();
+        String grado1 = Sgrado.getSelectedItem().toString();
+        String batallon1 = Sbatallon.getSelectedItem().toString();
+        String compañia1 = Scompañia.getSelectedItem().toString();
+        String ubicacion1 = Subicacion.getSelectedItem().toString();
 
 
 
         if (!cedula1.isEmpty() && !nombre1.isEmpty() && !apelllido1.isEmpty()
-                && !correo1.isEmpty() && !telefono1.isEmpty() && !fecha1.isEmpty())
+                && !telefono1.isEmpty() && !grado1.isEmpty() && !batallon1.isEmpty() && !compañia1.isEmpty()  && !ubicacion1.isEmpty() )
         {
             ContentValues registrar = new ContentValues();
-            registrar.put("cedula1", cedula1);
+            registrar.put("cedulaS", cedula1);
             registrar.put("nombre1", nombre1);
             registrar.put("apellido1", apelllido1);
-            registrar.put("correo1", correo1);
-            registrar.put("clave1",cedula1);
             registrar.put("telefono1", telefono1);
-            registrar.put("fecha1",fecha1);
+            registrar.put("grado", grado1);
+            registrar.put("batallon1", batallon1);
+            registrar.put("compañia", compañia1);
+            registrar.put("ubicacion", ubicacion1);
 
 
-            BaseDeDatos.insert("formularios", null, registrar);
+
+            BaseDeDatos.insert("soldado", null, registrar);
             BaseDeDatos.close();
 
             cedula.setText("");
             nombre.setText("");
             apellido.setText("");
-            correo.setText("");
-
             telefono.setText("");
-            fecha.setText("");
 
 
             Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show();
-            //notificacionDialog();
-            NotificationManager notificationManager = (NotificationManager) getSystemService(this.NOTIFICATION_SERVICE);
-            String NOTIFICATION_CHANEL_ID = "tutorialspoint_01";
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-                @SuppressLint("WrongConstant")NotificationChannel notificationChannel =
-                        new NotificationChannel(NOTIFICATION_CHANEL_ID, "My Notifications",  NotificationManager.IMPORTANCE_HIGH);
-                notificationChannel.setDescription("Descripcion de canal simple");
-                notificationChannel.enableLights(true);
-                notificationChannel.setLightColor(Color.RED);
-                notificationChannel.setVibrationPattern(new long[]{0,1000,500,1000});
-                notificationChannel.enableVibration(true);
-                notificationManager.createNotificationChannel(notificationChannel);
-            }
-            NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this,NOTIFICATION_CHANEL_ID);
-            notificationBuilder.setAutoCancel(true)
-                    .setDefaults(Notification.DEFAULT_ALL)
-                    .setWhen(System.currentTimeMillis())
-                    .setSmallIcon(android.R.drawable.stat_notify_chat)
-                    .setTicker("El usuario "+nombre1+" "+apelllido1 +" se registro con exito")
-                    .setContentTitle("Registro de usuario")
-                    .setContentText("El usuario "+nombre1+" "+apelllido1 +" se registro con exito")
-                    .setContentInfo("Nuevo Registro");
-            notificationManager.notify(1,notificationBuilder.build());
-
-
-
 
         } else {
             Toast.makeText(this, "Debe ingresar los datos", Toast.LENGTH_SHORT).show();
@@ -164,19 +138,46 @@ public class add_soldado extends AppCompatActivity {
         AdminSQLI admin = new AdminSQLI(this,"administracion",null,1);
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
         String cedula1 = cedula.getText().toString();
-
+        String batallonact = "", gradoact = "", compañiaact ="", ubicacionact ="";
         if (!cedula1.isEmpty()) {
             Cursor fila = BaseDeDatos.rawQuery
-                    ("select nombre1, apellido1, correo1, telefono1, fecha1 from formularios where cedula1 =" + cedula1, null);
+                    ("select nombre1, apellido1, telefono1, grado, batallon1, compañia, ubicacion from soldado where cedulaS =" + cedula1, null);
 
             //me confirma oo revisa si la consulta tiene valores
             if (fila.moveToFirst()) {
+
                 nombre.setText(fila.getString(0));
                 apellido.setText(fila.getString(1));
-                correo.setText(fila.getString(2));
+                telefono.setText(fila.getString(2));
+                gradoact= fila.getString(3);
+                batallonact= fila.getString(4);
+                compañiaact=fila.getString(5);
+                ubicacionact=fila.getString(6);
 
-                telefono.setText(fila.getString(3));
-                fecha.setText(fila.getString(4));
+
+
+                Sgrado = (Spinner)findViewById(R.id.spinnerg);
+                String [] opcionesG ={gradoact,"MARO","CBOS","CBOP","SGOS","SGOP","SUBS","SUBP","ALFG","TNFG","TNNV","CPCB","CPFG","CPNV"};
+                ArrayAdapter <String> adapterG = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,opcionesG);
+                Sgrado.setAdapter(adapterG);
+
+                Sbatallon = (Spinner)findViewById(R.id.spinner);
+                String [] opciones ={batallonact ,"CUINMA","BIMJAR","BIMJAM","BIMUIL","BIMEDU","BASEDU","BIMLOR","BIMESM"};
+                ArrayAdapter <String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,opciones);
+                Sbatallon.setAdapter(adapter);
+
+
+                Scompañia = (Spinner)findViewById(R.id.spinnerc);
+                String [] opcionesC ={compañiaact,"ALFA","BRAVO","CHARLIE","DELTA"};
+                ArrayAdapter <String> adapterC = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,opcionesC);
+                Scompañia.setAdapter(adapterC);
+
+                Subicacion = (Spinner)findViewById(R.id.spinneru);
+                String [] opcionesU ={ubicacionact,"PRESENTE","GUARDIA","COMISION","HOSPITAL","PERMISO","TERRENO"};
+                ArrayAdapter <String> adapterU = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,opcionesU);
+                Subicacion.setAdapter(adapterU);
+
+
 
 
 
@@ -197,15 +198,34 @@ public class add_soldado extends AppCompatActivity {
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
         String cedula1 = cedula.getText().toString();
         if (!cedula1.isEmpty()) {
-            int cant = BaseDeDatos.delete(" formularios", "cedula1=" + cedula1, null);
+            int cant = BaseDeDatos.delete(" soldado", "cedulaS=" + cedula1, null);
             BaseDeDatos.close();
             cedula.setText("");
             nombre.setText("");
             apellido.setText("");
-            correo.setText("");
-
             telefono.setText("");
-            fecha.setText("");
+
+            Sgrado = (Spinner)findViewById(R.id.spinnerg);
+            String [] opcionesG ={"Grado","MARO","CBOS","CBOP","SGOS","SGOP","SUBS","SUBP","ALFG","TNFG","TNNV","CPCB","CPFG","CPNV"};
+            ArrayAdapter <String> adapterG = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,opcionesG);
+            Sgrado.setAdapter(adapterG);
+
+            Sbatallon = (Spinner)findViewById(R.id.spinner);
+            String [] opciones ={"Batallones","CUINMA","BIMJAR","BIMJAM","BIMUIL","BIMEDU","BASEDU","BIMLOR","BIMESM"};
+            ArrayAdapter <String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,opciones);
+            Sbatallon.setAdapter(adapter);
+
+
+            Scompañia = (Spinner)findViewById(R.id.spinnerc);
+            String [] opcionesC ={"COMPAÑIA","ALFA","BRAVO","CHARLIE","DELTA"};
+            ArrayAdapter <String> adapterC = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,opcionesC);
+            Scompañia.setAdapter(adapterC);
+
+            Subicacion = (Spinner)findViewById(R.id.spinneru);
+            String [] opcionesU ={"ESTADO","PRESENTE","GUARDIA","COMISION","HOSPITAL","PERMISO","TERRENO"};
+            ArrayAdapter <String> adapterU = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,opcionesU);
+            Subicacion.setAdapter(adapterU);
+
             Toast.makeText(this, "Su registro fue elimnado exitosamente", Toast.LENGTH_SHORT).show();
 
         } else {
@@ -219,30 +239,51 @@ public class add_soldado extends AppCompatActivity {
         String cedula1 = cedula.getText().toString();
         String nombre1 = nombre.getText().toString();
         String apelllido1 = apellido.getText().toString();
-        String correo1 = correo.getText().toString();
-
         String telefono1 = telefono.getText().toString();
-        String fecha1 = fecha.getText().toString();
+        String grado1 = Sgrado.getSelectedItem().toString();
+        String batallon1 = Sbatallon.getSelectedItem().toString();
+        String compañia1 = Scompañia.getSelectedItem().toString();
+        String ubicacion1 = Subicacion.getSelectedItem().toString();
 
         if (!cedula1.isEmpty() && !nombre1.isEmpty() && !apelllido1.isEmpty()
-                && !correo1.isEmpty() && !telefono1.isEmpty() ) {
+                && !telefono1.isEmpty() && !grado1.isEmpty() && !batallon1.isEmpty() && !compañia1.isEmpty()  && !ubicacion1.isEmpty() )
+        {
             ContentValues registrar = new ContentValues();
-            registrar.put("cedula1", cedula1);
+            registrar.put("cedulaS", cedula1);
             registrar.put("nombre1", nombre1);
             registrar.put("apellido1", apelllido1);
-            registrar.put("correo1", correo1);
-
             registrar.put("telefono1", telefono1);
-            registrar.put("fecha1",fecha1);
+            registrar.put("grado", grado1);
+            registrar.put("batallon1", batallon1);
+            registrar.put("compañia", compañia1);
+            registrar.put("ubicacion", ubicacion1);
 
-            int cant = BaseDedatos.update("formularios", registrar, "cedula1=" + cedula1, null);
+            int cant = BaseDedatos.update("soldado", registrar, "cedulaS=" + cedula1, null);
             cedula.setText("");
             nombre.setText("");
             apellido.setText("");
-            correo.setText("");
-
             telefono.setText("");
-            fecha.setText("");
+
+            Sgrado = (Spinner)findViewById(R.id.spinnerg);
+            String [] opcionesG ={"Grado","MARO","CBOS","CBOP","SGOS","SGOP","SUBS","SUBP","ALFG","TNFG","TNNV","CPCB","CPFG","CPNV"};
+            ArrayAdapter <String> adapterG = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,opcionesG);
+            Sgrado.setAdapter(adapterG);
+
+            Sbatallon = (Spinner)findViewById(R.id.spinner);
+            String [] opciones ={"Batallones","CUINMA","BIMJAR","BIMJAM","BIMUIL","BIMEDU","BASEDU","BIMLOR","BIMESM"};
+            ArrayAdapter <String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,opciones);
+            Sbatallon.setAdapter(adapter);
+
+
+            Scompañia = (Spinner)findViewById(R.id.spinnerc);
+            String [] opcionesC ={"COMPAÑIA","ALFA","BRAVO","CHARLIE","DELTA"};
+            ArrayAdapter <String> adapterC = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,opcionesC);
+            Scompañia.setAdapter(adapterC);
+
+            Subicacion = (Spinner)findViewById(R.id.spinneru);
+            String [] opcionesU ={"ESTADO","PRESENTE","GUARDIA","COMISION","HOSPITAL","PERMISO","TERRENO"};
+            ArrayAdapter <String> adapterU = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,opcionesU);
+            Subicacion.setAdapter(adapterU);
 
             if (cant == 1) {
                 Toast.makeText(this, "Actualizacion fue exitosa", Toast.LENGTH_SHORT).show();
