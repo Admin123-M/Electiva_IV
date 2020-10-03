@@ -245,7 +245,7 @@ public class formulario extends AppCompatActivity {
             Toast.makeText(this, "Ingrese datos", Toast.LENGTH_SHORT).show();
         }
     }
-
+//prueba
     public void onClick(View v) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyy/MM/dd");
         Date date = null;
