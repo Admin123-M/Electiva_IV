@@ -41,5 +41,6 @@
     <string name="most_contactos">mostrar contactos</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="listar_soldados">Listar registros</string>
 
 </resources>

@@ -10,11 +10,13 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/menu_home" />
 
-
-
+        <item
+            android:id="@+id/add_soldado"
+            android:icon="@drawable/add_soldado"
+            android:title="@string/menu_home" />
         <item
             android:id="@+id/agregarSoldados"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/importar_contactos"
             android:title="Importar Soldados" />
         <item
             android:id="@+id/nav_gallery"
@@ -24,6 +26,11 @@
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_slideshow" />
+
+        <item
+            android:id="@+id/listar_soldados"
+            android:icon="@drawable/listar"
+            android:title="@string/listar_soldados" />
     </group>
 
 </menu>
