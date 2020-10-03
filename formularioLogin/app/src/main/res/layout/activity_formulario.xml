@@ -2,14 +2,16 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:screenOrientation="portrait"
+
     tools:context="com.example.formulariologin1.formulario">
 
     <LinearLayout
-        android:layout_width="354dp"
-        android:layout_height="594dp"
+
+        android:layout_width="335dp"
+        android:layout_height="545dp"
         android:layout_marginTop="4dp"
         android:orientation="vertical"
         android:screenOrientation="portrait"
@@ -17,201 +19,202 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:id="@+id/linearLayout3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/txtCedula"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/cedula"
-                android:inputType="number" />
-
-        </LinearLayout>
-
-        <EditText
-            android:id="@+id/txtNombre"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/nombre"
-            android:inputType="textPersonName" />
-
-        <EditText
-            android:id="@+id/txtApellido"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/apellido"
-            android:inputType="textPersonName" />
-
-        <EditText
-            android:id="@+id/txtCorreo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/correo"
-            android:inputType="textPersonName" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/txtTelefono"
-                android:layout_width="294dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="@string/telefono"
-                android:inputType="number" />
-
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="266dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <RadioGroup
-                android:id="@+id/radioG"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <RadioButton
-                    android:id="@+id/radioButton1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/femenino" />
-
-                <RadioButton
-                    android:id="@+id/radioButton2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/masculino" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"></LinearLayout>
-
-            </RadioGroup>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/linearLayout3"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="78dp"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btnCa"
-                    android:layout_width="91dp"
-                    android:layout_height="55dp"
-                    android:layout_weight="1"
-                    android:background="@mipmap/calendar3"
-                    android:onClick="onClick" />
-
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="12dp"
-                    android:layout_weight="1" />
+                android:layout_height="wrap_content"
+                android:screenOrientation="portrait">
 
                 <EditText
-                    android:id="@+id/txtCa"
-                    android:layout_width="222dp"
+                    android:id="@+id/txtCedula"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/cedula"
+                    android:inputType="number"
+                    android:screenOrientation="portrait" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/txtNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/nombre"
+                android:inputType="textPersonName"
+                android:screenOrientation="portrait" />
+
+            <EditText
+                android:id="@+id/txtApellido"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/apellido"
+                android:inputType="textPersonName"
+                android:screenOrientation="portrait" />
+
+            <EditText
+                android:id="@+id/txtCorreo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/correo"
+                android:inputType="textPersonName" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:screenOrientation="portrait">
+
+                <EditText
+                    android:id="@+id/txtTelefono"
+                    android:layout_width="294dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:hint="@string/calendario"
-                    android:inputType="textPersonName" />
+                    android:hint="@string/telefono"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioGroup
+                    android:id="@+id/radioG"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"></LinearLayout>
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:screenOrientation="portrait" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:screenOrientation="portrait">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:screenOrientation="portrait">
+
+                    <Button
+                        android:id="@+id/btnCa"
+                        android:layout_width="91dp"
+                        android:layout_height="55dp"
+                        android:layout_weight="1"
+                        android:background="@mipmap/calendar3"
+                        android:onClick="onClick" />
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="12dp"
+                        android:layout_weight="1" />
+
+                    <EditText
+                        android:id="@+id/txtCa"
+                        android:layout_width="222dp"
+                        android:layout_height="62dp"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="@string/calendario"
+                        android:inputType="textPersonName" />
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                </LinearLayout>
+            </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="19dp" />
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal"
+                android:screenOrientation="portrait">
+
+                <Button
+                    android:id="@+id/btnR"
+                    android:layout_width="107dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/custon_boton3"
+                    android:onClick="regFormu"
+                    android:text="Registrar"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
 
                 <Space
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/btnC"
+                    android:layout_width="116dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/custon_boton5"
+                    android:onClick="Actualizar"
+                    android:text="Actualizar"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/btnE"
+                    android:layout_width="107dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/custon_boton1"
+                    android:onClick="Eliminar"
+                    android:text="Eliminar"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
             </LinearLayout>
-        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="79dp"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btnR"
-                android:layout_width="107dp"
-                android:layout_height="50dp"
-                android:background="@drawable/custon_boton3"
-                android:onClick="regFormu"
-                android:text="Registrar"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <Button
-                android:id="@+id/btnC"
-                android:layout_width="116dp"
-                android:layout_height="50dp"
-                android:background="@drawable/custon_boton5"
-                android:onClick="Actualizar"
-                android:text="Actualizar"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <Button
-                android:id="@+id/btnE"
-                android:layout_width="107dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:background="@drawable/custon_boton1"
-                android:onClick="Eliminar"
-                android:text="Eliminar"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="61dp"
             android:orientation="horizontal">
 
             <Button
@@ -232,7 +235,7 @@
 
             <Button
                 android:id="@+id/btnRe"
-                android:layout_width="51dp"
+                android:layout_width="18dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:background="@mipmap/regresar"
@@ -244,14 +247,8 @@
 
         </LinearLayout>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="24dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"/>
+
 
     </LinearLayout>
 
