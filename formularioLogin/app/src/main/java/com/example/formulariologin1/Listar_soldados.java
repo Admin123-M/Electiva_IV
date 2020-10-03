@@ -17,7 +17,7 @@ public class Listar_soldados extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // setContentView(R.layout.activity_listar_soldados);
+       setContentView(R.layout.activity_listar_soldados);
 
 
     }
@@ -83,7 +83,7 @@ public class Listar_soldados extends AppCompatActivity {
         //String bat = batallon.getAdapter().toString();
 
             Cursor fila = BaseDeDatos.rawQuery
-                    ("select cedula1, nombre1, apellido1, correo1, telefono1, fecha1, batallon1, sexo1,estado from formularios ", null);
+                    ("select cedula1, nombre1, apellido1, correo1, telefono1, fecha1  from formularios ", null);
 
             //me confirma oo revisa si la consulta tiene valores
             while (fila.moveToNext()) {
@@ -95,7 +95,6 @@ public class Listar_soldados extends AppCompatActivity {
                 //clave.setText(fila.getString(3));
                 String telefono = fila.getString(4);
                 String fecha = fila.getString(5);
-                String batallon = fila.getString(6);
                 //fila.getString(5);
                 //sexoA.setSelected(true);
                 //sexoB.setSelected(true);
@@ -105,8 +104,7 @@ public class Listar_soldados extends AppCompatActivity {
                         "Apellido: " + apellido + "\n" +
                         "Correo: " + correo + "\n" +
                         "Numero: " + telefono + "\n" +
-                        "Fecha: " + fecha + "\n" +
-                        "Batallon: " + batallon + "\n\n";
+                        "Fecha: " + fecha + "\n" +"\n\n";
 
                 tv_usuarios.append(detalle);
 

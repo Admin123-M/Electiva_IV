@@ -86,8 +86,7 @@ public class formulario extends AppCompatActivity {
         String telefono1 = telefono.getText().toString();
         String fecha1 = fecha.getText().toString();
 
-        String sexo1 = sexoA.getText().toString();
-        String sexo2 = sexoB.getText().toString();
+
 
         if (!cedula1.isEmpty() && !nombre1.isEmpty() && !apelllido1.isEmpty()
                 && !correo1.isEmpty() && !telefono1.isEmpty() && !fecha1.isEmpty())

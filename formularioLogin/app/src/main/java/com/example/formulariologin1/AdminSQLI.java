@@ -18,7 +18,7 @@ public class AdminSQLI extends SQLiteOpenHelper {
 
 
         BaseDeDatos.execSQL("create table formularios(cedula1 int primary key,nombre1 text, apellido1 text, correo1 text, clave1 text, telefono1 text, fecha1 text)");
-
+        BaseDeDatos.execSQL("create table soldado(cedulaS int primary key, nombre1 text, apellido1 text, telefono1 text, grado text,batallon1 text, compañia text, ubicacion text)");
 
 
 

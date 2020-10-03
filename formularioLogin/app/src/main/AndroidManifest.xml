@@ -16,15 +16,15 @@
         android:screenOrientation="portrait">
         <activity android:name="com.example.formulariologin1.add_soldado"
             android:screenOrientation="portrait" ></activity>
-        <activity android:name="com.example.formulariologin1.Listar_soldados" />
-        <activity android:name="com.example.formulariologin1.ImportSoldados" />
-        <activity android:name="com.example.formulariologin1.cambiarClave" />
+        <activity android:name="com.example.formulariologin1.Listar_soldados" android:screenOrientation="portrait" />
+        <activity android:name="com.example.formulariologin1.ImportSoldados" android:screenOrientation="portrait" />
+        <activity android:name="com.example.formulariologin1.cambiarClave" android:screenOrientation="portrait" />
         <activity
             android:name="com.example.formulariologin1.menu_principal"
             android:label="@string/title_activity_menu_principal"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
-        <activity android:name="com.example.formulariologin1.formulario" />
+        <activity android:name="com.example.formulariologin1.formulario" android:screenOrientation="portrait" />
         <activity android:name="com.example.formulariologin1.MainActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
